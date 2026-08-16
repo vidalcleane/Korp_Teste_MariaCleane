@@ -1,0 +1,42 @@
+.form-card {
+  margin-bottom: 24px;
+}
+
+.item-form {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.item-form mat-form-field {
+  min-width: 220px;
+}
+
+.carrinho-table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+
+.carrinho-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.criar-btn {
+  margin-top: 16px;
+}
+
+.hint {
+  color: #888;
+  margin-top: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+h2 {
+  margin-top: 24px;
+}

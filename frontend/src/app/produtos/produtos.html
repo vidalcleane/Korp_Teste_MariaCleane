@@ -1,0 +1,55 @@
+<mat-card class="form-card">
+  <mat-card-header>
+    <mat-card-title>Cadastrar Produto</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="salvar()" class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" placeholder="Ex: LIC-001" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" placeholder="Nome do produto" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Saldo inicial</mat-label>
+        <input matInput type="number" formControlName="saldo" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">
+        Cadastrar Produto
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<h2>Produtos cadastrados</h2>
+
+<table mat-table [dataSource]="(produtos$ | async) ?? []" class="mat-elevation-z2 full-width">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let produto">{{ produto.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="codigo">
+    <th mat-header-cell *matHeaderCellDef>Código</th>
+    <td mat-cell *matCellDef="let produto">{{ produto.codigo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef>Descrição</th>
+    <td mat-cell *matCellDef="let produto">{{ produto.descricao }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="saldo">
+    <th mat-header-cell *matHeaderCellDef>Saldo</th>
+    <td mat-cell *matCellDef="let produto">{{ produto.saldo }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+  <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+</table>
